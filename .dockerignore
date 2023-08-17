@@ -1,0 +1,10 @@
+.dockerignore
+docker-compose*
+Dockerfile
+.git
+.github
+.gitignore
+node_modules
+.next
+.eslintrc.json
+README.md
