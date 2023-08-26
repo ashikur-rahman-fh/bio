@@ -1,0 +1,54 @@
+.facebook {
+  fill: rgba(24, 119, 242, .8);
+}
+
+.youtube {
+  fill: rgba(255, 0, 0, .8);
+}
+
+.gmail {
+  fill: rgba(234, 67, 53, .8);
+}
+
+.linkedin {
+  fill: rgba(10, 102, 194, .8);
+}
+
+.github {
+  fill: rgba(36, 41, 47, .8);
+}
+
+.social-link .linkedin:hover {
+  fill: rgba(10, 102, 194, 1);
+  scale: 1.25;
+  transition-duration: 0.37s;
+  opacity: 1;
+}
+
+.social-link .github:hover {
+  fill: rgba(36, 41, 47, 1);
+  scale: 1.25;
+  transition-duration: 0.37s;
+  opacity: 1;
+}
+
+.social-link .gmail:hover {
+  fill: rgba(234, 67, 53, 1);
+  scale: 1.25;
+  transition-duration: 0.37s;
+  opacity: 1;
+}
+
+.social-link .youtube:hover {
+  fill: rgba(255, 0, 0, 1);
+  scale: 1.25;
+  transition-duration: 0.37s;
+  opacity: 1;
+}
+
+.social-link .facebook:hover {
+  fill: rgba(24, 119, 242, 1);
+  scale: 1.25;
+  transition-duration: 0.37s;
+  opacity: 1;
+}

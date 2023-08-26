@@ -7,6 +7,7 @@
       "eqeqeq": ["error", "always"],
       "no-var": ["error"],
       "no-unused-vars": ["error"],
-      "eol-last": ["error", "always"]
+      "eol-last": ["error", "always"],
+      "no-trailing-spaces": ["error"]
   }
 }

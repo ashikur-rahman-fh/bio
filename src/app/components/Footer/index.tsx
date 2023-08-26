@@ -4,7 +4,7 @@ import { CONTACT_INFO } from "@/app/constants";
 
 const Footer = () => {
   const startDate = "2023";
-  
+
   return (
     <footer
       className="text-center text-slate-500 text-sm"
@@ -13,5 +13,5 @@ const Footer = () => {
     </footer>
   );
 };
-  
+
 export default Footer;
