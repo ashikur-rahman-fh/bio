@@ -1,10 +1,10 @@
 import React from "react";
 
 interface MenuProps {
-  items : Array<any>,
-};
+  items: Array<any>;
+}
 
-const Menu = (props : MenuProps) => {
+const Menu = (props: MenuProps) => {
   const { items } = props;
 
   const renderMenuItems = () => {
@@ -13,7 +13,7 @@ const Menu = (props : MenuProps) => {
       return (
         <a
           key={index.toString()}
-          className="lowercase text-md text-slate-400 hover:text-slate-800"
+          className="text-md whitespace-nowrap lowercase text-slate-400 hover:text-slate-800"
           href={link}
         >
           {text}
@@ -22,11 +22,7 @@ const Menu = (props : MenuProps) => {
     });
   };
 
-  return (
-    <>
-      {renderMenuItems()}
-    </>
-  );
+  return <>{renderMenuItems()}</>;
 };
 
 export default Menu;
