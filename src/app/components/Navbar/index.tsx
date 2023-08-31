@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <React.Fragment>
       <section className="sticky top-0 z-50 mb-4 flex h-24 items-center justify-between bg-white shadow-md">
-        <div className="w-1/16 ml-2 text-left md:ml-32">
+        <div className="w-1/16 ml-4 text-left md:ml-32">
           <a className="font-bold uppercase" href="/">
             Home
           </a>
@@ -34,8 +34,8 @@ const Navbar = () => {
           <Social platforms={SOCIAL_PLATFORMS} />
         </div>
 
-        <div className="mr-2 flex w-1/2 justify-end md:mr-32 lg:hidden">
-          <span onClick={toggleHamburger}>
+        <div className="mr-4 flex w-1/2 justify-end md:mr-32 lg:hidden">
+          <span className="bg-gray-100 rounded-full aspect-square h-10 flex justify-center items-center" onClick={toggleHamburger}>
             {hambugerOpen ? (
               <Close style={{ width: "25px" }} />
             ) : (
