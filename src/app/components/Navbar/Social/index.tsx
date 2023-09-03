@@ -3,11 +3,11 @@ import Link from "next/link";
 
 import "./style.css";
 
-const Social = (props : any) => {
+const Social = (props: any) => {
   const { platforms } = props;
 
   const renderSocialPlatforms = () => {
-    return platforms.map((socialPlatform : any, index : any) => {
+    return platforms.map((socialPlatform: any, index: any) => {
       const { LogoComponent, link, text } = socialPlatform;
 
       const label = `Ashikur Rahman's ${text} profile`;
@@ -29,11 +29,7 @@ const Social = (props : any) => {
     });
   };
 
-  return (
-    <div className="w-full flex flex-row justify-end">
-      {renderSocialPlatforms()}
-    </div>
-  );
+  return <>{renderSocialPlatforms()}</>;
 };
 
 export default Social;

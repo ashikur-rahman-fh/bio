@@ -1,33 +1,51 @@
-import React from "react";
+"use client";
 
-import { NAV_OPTIONS, SOCIAL_PLATFORMS } from "./constants";
+import React, { useState } from "react";
+
 import Menu from "./Menu";
 import Social from "./Social";
+import Hamburger from "../LogoComponent/Hamburger";
+import Close from "../LogoComponent/Close";
+import Sidebar from "./Sidebar";
+
+import { NAV_OPTIONS, SOCIAL_PLATFORMS } from "./constants";
 
 const Navbar = () => {
+  const [hambugerOpen, setHambugerOpen] = useState(false);
+
+  const toggleHamburger = () => {
+    setHambugerOpen((previousStage) => !previousStage);
+  };
 
   return (
-    <section
-      className="flex items-center justify-between h-24 shadow-md sticky top-0 z-50 bg-white mb-4"
-    >
-      <div
-        className="w-1/16 text-left md:ml-32 ml-2"
-      >
-        <a className="uppercase font-bold" href="/">Home</a>
-      </div>
+    <React.Fragment>
+      <section className="sticky top-0 z-50 mb-4 flex h-24 items-center justify-between bg-white shadow-md">
+        <div className="w-1/16 ml-4 text-left md:ml-32">
+          <a className="font-bold uppercase" href="/">
+            Home
+          </a>
+        </div>
 
-      <div
-        className="w-1/2 flex justify-evenly mx-16"
-      >
-        <Menu items={NAV_OPTIONS} />
-      </div>
+        <div className="mx-16 hidden w-1/2 justify-evenly lg:flex">
+          <Menu items={NAV_OPTIONS} />
+        </div>
 
-      <div
-        className="w-1/2 md:mr-32 mr-2 flex justify-end"
-      >
-        <Social platforms={SOCIAL_PLATFORMS} />
-      </div>
-    </section>
+        <div className="mr-2 hidden w-1/2 justify-end md:mr-32 lg:flex">
+          <Social platforms={SOCIAL_PLATFORMS} />
+        </div>
+
+        <div className="mr-4 flex w-1/2 justify-end md:mr-32 lg:hidden">
+          <span className="bg-gray-100 rounded-full aspect-square h-10 flex justify-center items-center" onClick={toggleHamburger}>
+            {hambugerOpen ? (
+              <Close style={{ width: "25px" }} />
+            ) : (
+              <Hamburger style={{ width: "20px" }} />
+            )}
+          </span>
+        </div>
+      </section>
+      {hambugerOpen ? <Sidebar /> : null}
+    </React.Fragment>
   );
 };
 

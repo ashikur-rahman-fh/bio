@@ -1,7 +1,10 @@
 import React from "react";
+import About from "./about/About";
 
 export default function Home() {
   return (
-    <h1>Ashikur Rahman</h1>
+    <React.Fragment>
+      <About />
+    </React.Fragment>
   );
-};
+}
