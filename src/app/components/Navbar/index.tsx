@@ -35,7 +35,10 @@ const Navbar = () => {
         </div>
 
         <div className="mr-4 flex w-1/2 justify-end md:mr-32 lg:hidden">
-          <span className="bg-gray-100 rounded-full aspect-square h-10 flex justify-center items-center" onClick={toggleHamburger}>
+          <span
+            className="flex aspect-square h-10 items-center justify-center rounded-full bg-green-200"
+            onClick={toggleHamburger}
+          >
             {hambugerOpen ? (
               <Close style={{ width: "25px" }} />
             ) : (
