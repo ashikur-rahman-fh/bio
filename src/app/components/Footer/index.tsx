@@ -6,10 +6,9 @@ const Footer = () => {
   const startDate = "2023";
 
   return (
-    <footer
-      className="text-center text-slate-500 text-sm"
-    >
-      &copy; Copyright {startDate}-{new Date().getFullYear()} {CONTACT_INFO.NAME}
+    <footer className="text-slate-500 mt-10 text-center text-sm">
+      &copy; Copyright {startDate}-{new Date().getFullYear()}{" "}
+      {CONTACT_INFO.NAME}
     </footer>
   );
 };
