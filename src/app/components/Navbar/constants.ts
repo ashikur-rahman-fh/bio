@@ -1,3 +1,5 @@
+import React from "react";
+
 import { CONTACT_INFO } from "@/app/constants";
 import Facebook from "../LogoComponent/Facebook";
 import GitHub from "../LogoComponent/GitHub";
@@ -5,7 +7,21 @@ import Gmail from "../LogoComponent/Gmail";
 import LinkedIn from "../LogoComponent/LinkedIn";
 import Youtube from "../LogoComponent/Youtube";
 
-export const NAV_OPTIONS = [
+import { LogoProps } from "@/app/types";
+
+export interface INavbarOptions {
+  text: string,
+  link: string,
+};
+
+export interface ISocialPlatformOption {
+  id: string,
+  LogoComponent: React.ComponentType<LogoProps>,
+  text: string,
+  link: string,
+}
+
+export const NAV_OPTIONS: INavbarOptions[] = [
   {
     text: "About",
     link: "/about",
@@ -24,7 +40,7 @@ export const NAV_OPTIONS = [
   }
 ];
 
-export const SOCIAL_PLATFORMS = [
+export const SOCIAL_PLATFORMS: ISocialPlatformOption[] = [
   {
     id: "linkedin",
     LogoComponent: LinkedIn,
@@ -41,7 +57,7 @@ export const SOCIAL_PLATFORMS = [
     id: "gmail",
     LogoComponent: Gmail,
     text: "Gmail",
-    link: `mailto:${CONTACT_INFO?.EMAIL}`,
+    link: `mailto:${CONTACT_INFO?.email}`,
   },
   {
     id: "youtube",

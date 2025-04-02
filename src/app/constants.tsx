@@ -1,10 +1,12 @@
-export const CONTACT_INFO = {
-  NAME: "Ashikur Rahman",
-  EMAIL: "ashikurrahmanvar@gmail.com",
-  PHONE: "+1 343 297 3525",
+import { IContact, IMetadata } from "./types";
+
+export const CONTACT_INFO: IContact = {
+  name: "Ashikur Rahman",
+  email: "ashikurrahmanvar@gmail.com",
+  phone: "+1 (343) 297 3525"
 };
 
-export const DEFAULT_METADATA = {
+export const DEFAULT_METADATA: IMetadata = {
   title: "Ashikur Rahman - Software Developer at Nokia",
   description:
     "Software Developer with expertise in data structures and algorithms and excelling in complex problem-solving. Over 2(two) years of experience in software development and " +

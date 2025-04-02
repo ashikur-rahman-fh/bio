@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="text-slate-500 mt-10 text-center text-sm">
       &copy; Copyright {startDate}-{new Date().getFullYear()}{" "}
-      {CONTACT_INFO.NAME}
+      {CONTACT_INFO.name}
     </footer>
   );
 };
