@@ -5,7 +5,7 @@ import About from "./About";
 
 import { DEFAULT_METADATA } from "../constants";
 
-export async function generateAboutMetadata(): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   return {
     ...DEFAULT_METADATA,
     title: "About | Ashikur Rahman",

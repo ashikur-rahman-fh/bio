@@ -5,7 +5,7 @@ import Contact from "./Contact";
 
 import { DEFAULT_METADATA } from "../constants";
 
-export async function generateContactMetadata(): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   return {
     ...DEFAULT_METADATA,
     title: "Contact | Ashikur Rahman",
