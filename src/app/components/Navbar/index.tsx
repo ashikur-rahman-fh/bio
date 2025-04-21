@@ -19,7 +19,10 @@ const Navbar = () => {
 
   return (
     <React.Fragment>
-      <section className="sticky top-0 z-50 mb-4 flex h-24 items-center justify-between bg-white shadow-md">
+      <section
+        className="sticky top-0 z-50 mb-4 flex h-24 items-center
+        justify-between bg-white shadow-md"
+      >
         <div className="w-1/16 ml-4 text-left md:ml-32">
           <a className="font-bold uppercase" href="/">
             Home
@@ -36,7 +39,10 @@ const Navbar = () => {
 
         <div className="mr-4 flex w-1/2 justify-end md:mr-32 lg:hidden">
           <span
-            className="flex aspect-square h-10 items-center justify-center rounded-full bg-green-200"
+            className="
+              flex aspect-square h-10 items-center
+              justify-center rounded-full bg-green-200
+            "
             onClick={toggleHamburger}
           >
             {hambugerOpen ? (

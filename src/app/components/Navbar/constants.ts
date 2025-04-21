@@ -69,6 +69,6 @@ export const SOCIAL_PLATFORMS: ISocialPlatformOption[] = [
     id: "facebook",
     LogoComponent: Facebook,
     text: "Facebook",
-    link: "https://www.facebook.com/ashikur.akash11/",
+    link: "https://www.facebook.com/ashikur.fh/",
   },
 ];

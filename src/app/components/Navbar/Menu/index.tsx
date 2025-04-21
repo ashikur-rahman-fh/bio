@@ -13,7 +13,10 @@ const Menu = (props: MenuProps) => {
       return (
         <a
           key={index.toString()}
-          className="text-md whitespace-nowrap lowercase text-slate-400 hover:text-slate-800"
+          className={
+            "text-md whitespace-nowrap lowercase text-slate-400 " +
+            "hover:text-slate-800"
+          }
           href={link}
         >
           {text}

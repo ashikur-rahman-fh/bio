@@ -7,9 +7,9 @@ import { BASIC_INFO } from "./constants";
 
 const About = () => {
   const renderBasicInfo = () => {
-    const infoLenght = BASIC_INFO.length;
+    const infoLength = BASIC_INFO.length;
     return BASIC_INFO.map((info, index) => {
-      const columnFull = index === infoLenght - 1 && infoLenght % 2 === 1;
+      const columnFull = index === infoLength - 1 && infoLength % 2 === 1;
       const className = columnFull ? "md:col-span-2" : "";
       return (
         <p className={className} key={index.toString()}>
@@ -21,7 +21,13 @@ const About = () => {
 
   return (
     <section className="mx-2 my-2 md:mx-32 lg:mx-[10vw]">
-      <div className="relative float-right my-2 ml-8 hidden overflow-hidden rounded-full border-2 border-gray-100 shadow-sm shadow-gray-500 lg:inline-block">
+      <div
+        className="
+          relative float-right my-2 ml-8 hidden overflow-hidden
+          rounded-full border-2 border-gray-100 shadow-sm
+          shadow-gray-500 lg:inline-block
+        "
+      >
         <Image
           className="!h-64 !w-64"
           src={ashikurDp}
@@ -41,7 +47,13 @@ const About = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 text-justify md:grid-cols-2 md:gap-8 [&>p]:rounded-md [&>p]:bg-green-200 [&>p]:p-4 [&>p]:shadow-md [&>p]:shadow-green-200">
+        <div
+          className="
+            grid grid-cols-1 gap-4 text-justify md:grid-cols-2 md:gap-8
+            [&>p]:rounded-md [&>p]:bg-green-200 [&>p]:p-4
+            [&>p]:shadow-md [&>p]:shadow-green-200
+          "
+        >
           {renderBasicInfo()}
         </div>
       </div>
