@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import type { Config } from "tailwindcss";
 const withMT = require("@material-tailwind/react/utils/withMT");
 

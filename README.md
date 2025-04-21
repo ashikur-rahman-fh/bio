@@ -2,7 +2,7 @@
 
 Ashikur Rahman is a software developer from Canada. Currently working at Nokia.  
 
-This is a portfolio webapplication
+This is a portfolio web application
 
 
 # Development with Docker
@@ -14,4 +14,7 @@ This is a portfolio webapplication
 1. Install nodeJS
 2. Open the project
 3. Run `npm ci`
-4. Start development
+4. Start development `npm run dev`
+
+## Run tests
+Execute the test.sh script from the root of the workspace `./test.sh`
