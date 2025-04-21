@@ -7,11 +7,16 @@ export const CONTACT_INFO: IContact = {
 };
 
 export const DEFAULT_METADATA: IMetadata = {
-  title: "Ashikur Rahman - Software Developer at Nokia",
+  title: "Ashikur Rahman – Software Developer at Nokia",
   description:
-    "Software Developer with expertise in data structures and algorithms and excelling in complex problem-solving. Over 2(two) years of experience in software development and " +
-    "5+ years in competitive programming.",
+    "Ashikur Rahman is a professional software developer at Nokia with over " +
+    "two years of experience in scalable software development. Skilled in " +
+    "algorithms, data structures, and system-level programming. He has over " +
+    "five years of success in competitive programming and international " +
+    "contests such as ICPC and Google Code Jam.",
   keywords:
-    "Software Developer, Nokia, Data Structures, Algorithms, Design Patterns, C++, Python, Shell, Programming, Contest, ICPC, Codeforces, Leetcode" +
-    "Competitive Programming, Codechef, UVA, Hackerrank, Google Codejam, LinkedIn",
+    "Ashikur Rahman, Software Developer, Nokia, Software Engineer, System " +
+    "Programming, Data Structures, Algorithms, Design Patterns, Competitive " +
+    "Programming, C++, Python, Shell Scripting, ICPC, Codeforces, CodeChef, " +
+    "Google Code Jam, Hackerrank, UVA, Leetcode, LinkedIn, Git, Linux",
 };

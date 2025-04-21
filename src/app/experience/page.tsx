@@ -5,15 +5,23 @@ import WorkExperience from "./WorkExperience";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Work Experience - Ashikur Rahman",
+    title:
+      "Work Experience | Ashikur Rahman",
     description:
-      "Ashikur has been working as a software developer over three (3) " +
-      "years. " +
-      "Currently working at Nokia.",
+      "Ashikur is a professional software developer with over three " +
+      "years of hands-on experience. Currently contributing to next gen " +
+      "software solutions at Nokia, with expertise in embedded software " +
+      "development practices.",
     keywords:
-      "Software Developer, 3 years, three years, OOP, Object oriented " +
-      "programming, design patterns, micro service architecture, embedded " +
-      "software development, linux environment, gRPC, REST, Git, Gerrit",
+      "Ashikur Rahman, software developer, professional software engineer, " +
+      "3 years experience, three years, object-oriented programming, OOP, " +
+      "design patterns, microservices architecture, embedded systems, " +
+      "Linux development, REST APIs, gRPC, Git, Gerrit, backend development, " +
+      "distributed systems, scalable software, Nokia, Enosis Solutions, " +
+      "SammTech, Jenkins, CI/CD, Infrastructure" +
+      "C++, CPP, Python, Bash, Scripting, C++ developer, Python developer" +
+      "Django, Django developer, JavaScript, JavaScript developer, React" +
+      "React developer, Embedded software, Embedded software developer"
   };
 }
 

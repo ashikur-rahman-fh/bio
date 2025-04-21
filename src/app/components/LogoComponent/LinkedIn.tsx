@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const LinkedIn = (props: any) => {
   const { className } = props;
 

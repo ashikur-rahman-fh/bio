@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const Gmail = (props: any) => {
   const { className } = props;
 
