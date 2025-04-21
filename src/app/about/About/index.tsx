@@ -1,8 +1,6 @@
 import React from "react";
 import Image from "next/image";
 
-import ashikurDp from "./prof-dp.png";
-
 import { BASIC_INFO } from "./constants";
 
 const About = () => {
@@ -30,7 +28,7 @@ const About = () => {
       >
         <Image
           className="!h-64 !w-64"
-          src={ashikurDp}
+          src={"/prof-dp.png"}
           alt="ashikur-dp"
           height={480}
           width={480}
