@@ -21,3 +21,5 @@ jobs:
 
       - name: Run static code check
         run: npm run lint
+      - name: Run test script
+        run: ./test.sh
