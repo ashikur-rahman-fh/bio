@@ -22,10 +22,10 @@ export interface ISocialPlatformOption {
 }
 
 export const NAV_OPTIONS: INavbarOptions[] = [
-  {
-    text: "About",
-    link: "/about",
-  },
+//  {
+//    text: "About",
+//    link: "/about",
+//  },
   {
     text: "Work Experience",
     link: "/experience"
