@@ -16,4 +16,5 @@ export interface IWorkExperience {
   start: IYearMonth;
   end: IYearMonth | "Present" | "Current" | "Ongoing";
   skills: IWorkSkill[];
+  contributions: string[];
 };
