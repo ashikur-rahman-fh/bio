@@ -9,11 +9,12 @@ const HeadLine = () => {
     <React.Fragment>
       <h1 className="text-2xl font-bold uppercase">
         Writing production code since 2020.<br/>
+        {/*eslint-disable-next-line max-len */}
         Every year since has been a deeper dive into building smarter and faster systems.
       </h1>
     </React.Fragment>
   );
-}
+};
 
 const WorkExperience = () => {
   return (
