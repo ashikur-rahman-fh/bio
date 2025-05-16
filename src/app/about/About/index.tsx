@@ -18,7 +18,7 @@ const About = () => {
   };
 
   return (
-    <section className="mx-2 my-2 md:mx-32 lg:mx-[10vw]">
+    <React.Fragment>
       <div
         className="
           relative float-right my-2 ml-8 hidden overflow-hidden
@@ -55,7 +55,7 @@ const About = () => {
           {renderBasicInfo()}
         </div>
       </div>
-    </section>
+    </React.Fragment>
   );
 };
 

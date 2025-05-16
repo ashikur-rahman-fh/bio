@@ -1,22 +1,29 @@
 import React from "react";
 import Image from "next/image";
 
-import { IOrganization, IWorkExperience } from "../types";
+import { IWorkExperience } from "../types";
 import { formatYear } from "../utils";
 
 const OrgLogo = ({
   website,
   logoLink,
 }: {
-  website: IOrganization["website"];
-  logoLink: IOrganization["logoLink"];
+  website: IWorkExperience["website"];
+  logoLink: IWorkExperience["logoLink"];
 }) => {
   return (
     <React.Fragment>
       <a href={website} target="_blank">
         <Image
-          // eslint-disable-next-line max-len
-          className="rounded-md h-24 w-40 border-2 border-solid border-gray-300 p-2"
+          className={`
+            rounded-md
+            border-2
+            border-solid
+            border-gray-300
+            p-2
+            w-[180px]
+            aspect-[16/9]
+          `}
           src={logoLink}
           alt="workplace logo"
           width={100}
@@ -28,26 +35,20 @@ const OrgLogo = ({
   );
 };
 
-const Contribution = ({ contributions }: { contributions: string[] }) => {
-  return contributions.map((con: string, index: number) => {
+const Contribution = ({ story }: { story: string[] }) => {
+  return story.map((con: string, index: number) => {
     return <h1 key={index}>{con}</h1>;
   });
 };
 
 const Organization = ({
   organization,
-  start,
-  end,
-  contributions,
 }: {
-  organization: IOrganization;
-  start: IWorkExperience["start"];
-  end: IWorkExperience["end"];
-  contributions: string[];
+  organization: IWorkExperience;
 }) => {
   return (
     <React.Fragment>
-      <div className="org-container m-2 grid grid-cols-[30%_70%] gap-4">
+      <div className="org-container m-2 grid grid-cols-[37%_63%] gap-4">
         <div className="row-span-2 p-4">
           <div className="flex">
             <OrgLogo
@@ -59,16 +60,20 @@ const Organization = ({
                 <h1 className="text-xl font-bold uppercase">
                   {organization.name}
                 </h1>
+                <h1 className="text-md">
+                  {organization.role}
+                </h1>
+                <h1 className="text-sm">
+                  {formatYear(organization.start)} -{" "}
+                  {formatYear(organization.end)}
+                </h1>
               </a>
-              <h1 className="text-sm">
-                {formatYear(start)} - {formatYear(end)}
-              </h1>
             </span>
           </div>
         </div>
 
-        <div className="bg-green-100 p-4 rounded-md">
-          <Contribution contributions={contributions} />
+        <div className="rounded-md bg-green-100 p-4 text-justify">
+          <Contribution story={organization.story} />
         </div>
       </div>
     </React.Fragment>

@@ -11,11 +11,8 @@ const WorkExperience = () => {
       {Experience.map((experience) => {
         return (
           <Organization
-            key={experience.organization.name}
-            organization={experience.organization}
-            start={experience.start}
-            end={experience.end}
-            contributions={experience.contributions}
+            key={experience.name}
+            organization={experience}
           />
         );
       })}
