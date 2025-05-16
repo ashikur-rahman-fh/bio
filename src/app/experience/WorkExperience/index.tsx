@@ -1,35 +1,30 @@
 import React from "react";
-import Image from "next/image";
 
-import { IOrganization } from "./types";
+import Organization from "./Organization";
+
 import { Experience } from "./constants";
 
-const Organization = ({ organization } : { organization: IOrganization }) => {
+const HeadLine = () => {
   return (
     <React.Fragment>
-      <a href={organization.website} target="_blank">
-        <Image
-          className="border-blue-200 border-2 border-solid h-24 w-40 p-2 m-4"
-          src={organization.logoLink}
-          alt="workplace logo"
-          width={100}
-          height={100}
-          priority
-        />
-      </a>
+      <h1 className="text-2xl font-bold uppercase">
+        Writing production code since 2020.<br/>
+        {/*eslint-disable-next-line max-len */}
+        Every year since has been a deeper dive into building smarter and faster systems.
+      </h1>
     </React.Fragment>
   );
 };
 
-
 const WorkExperience = () => {
   return (
     <React.Fragment>
+      <HeadLine />
       {Experience.map((experience) => {
         return (
           <Organization
-            key={experience.organization.name}
-            organization={experience.organization}
+            key={experience.name}
+            organization={experience}
           />
         );
       })}

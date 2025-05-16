@@ -28,7 +28,9 @@ export default function RootLayout({
         <body className={inter.className}>
           <Navbar />
           <Maintenance />
-          {children}
+          <section className="mx-2 my-2 md:mx-32 lg:mx-[10vw]">
+            {children}
+          </section>
           <Footer />
           <Analytics />
         </body>

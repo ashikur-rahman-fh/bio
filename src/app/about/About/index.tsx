@@ -18,7 +18,7 @@ const About = () => {
   };
 
   return (
-    <section className="mx-2 my-2 md:mx-32 lg:mx-[10vw]">
+    <React.Fragment>
       <div
         className="
           relative float-right my-2 ml-8 hidden overflow-hidden
@@ -48,14 +48,14 @@ const About = () => {
         <div
           className="
             grid grid-cols-1 gap-4 text-justify md:grid-cols-2 md:gap-8
-            [&>p]:rounded-md [&>p]:bg-green-200 [&>p]:p-4
-            [&>p]:shadow-md [&>p]:shadow-green-200
+            [&>p]:rounded-md [&>p]:bg-gray-100 [&>p]:p-4
+            [&>p]:shadow-lg [&>p]:shadow-gray-300
           "
         >
           {renderBasicInfo()}
         </div>
       </div>
-    </section>
+    </React.Fragment>
   );
 };
 
