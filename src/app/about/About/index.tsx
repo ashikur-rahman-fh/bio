@@ -48,8 +48,8 @@ const About = () => {
         <div
           className="
             grid grid-cols-1 gap-4 text-justify md:grid-cols-2 md:gap-8
-            [&>p]:rounded-md [&>p]:bg-green-200 [&>p]:p-4
-            [&>p]:shadow-md [&>p]:shadow-green-200
+            [&>p]:rounded-md [&>p]:bg-gray-100 [&>p]:p-4
+            [&>p]:shadow-lg [&>p]:shadow-gray-300
           "
         >
           {renderBasicInfo()}

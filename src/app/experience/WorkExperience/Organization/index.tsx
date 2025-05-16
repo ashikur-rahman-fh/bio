@@ -19,7 +19,7 @@ const OrgLogo = ({
             rounded-md
             border-2
             border-solid
-            border-gray-300
+            border-gray-200
             p-2
             w-[180px]
             aspect-[16/9]
@@ -48,7 +48,8 @@ const Organization = ({
 }) => {
   return (
     <React.Fragment>
-      <div className="org-container m-2 grid grid-cols-[37%_63%] gap-4">
+      <div className="org-container grid grid-cols-[37%_63%] m-8 p-4
+        rounded-md bg-gray-100 shadow-lg shadow-gray-300">
         <div className="row-span-2 p-4">
           <div className="flex">
             <OrgLogo
@@ -72,7 +73,7 @@ const Organization = ({
           </div>
         </div>
 
-        <div className="rounded-md bg-green-100 p-4 text-justify">
+        <div className="rounded-md bg-gray-100 p-4 text-justify">
           <Contribution story={organization.story} />
         </div>
       </div>

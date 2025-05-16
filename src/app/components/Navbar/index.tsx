@@ -41,7 +41,7 @@ const Navbar = () => {
           <span
             className="
               flex aspect-square h-10 items-center
-              justify-center rounded-full bg-green-200
+              justify-center rounded-full bg-gray-100
             "
             onClick={toggleHamburger}
           >
