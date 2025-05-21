@@ -32,7 +32,7 @@ export const NAV_OPTIONS: INavbarOptions[] = [
   },
   {
     text: "Skills",
-    link: "/skill",
+    link: "/skills",
   },
   {
     text: "Contact",
