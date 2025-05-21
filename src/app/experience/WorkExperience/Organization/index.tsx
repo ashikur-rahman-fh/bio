@@ -16,10 +16,6 @@ const OrgLogo = ({
       <a href={website} target="_blank">
         <Image
           className={`
-            rounded-md
-            border-2
-            border-solid
-            border-gray-200
             p-2
             w-[180px]
             aspect-[16/9]
@@ -48,34 +44,31 @@ const Organization = ({
 }) => {
   return (
     <React.Fragment>
-      <div className="org-container grid grid-cols-[37%_63%] m-8 p-4
-        rounded-md bg-gray-100 shadow-lg shadow-gray-300">
-        <div className="row-span-2 p-4">
-          <div className="flex">
-            <OrgLogo
-              website={organization.website}
-              logoLink={organization.logoLink}
-            />
-            <span className="mx-2">
-              <a href={organization.website} target="_blank">
-                <h1 className="text-xl font-bold uppercase">
-                  {organization.name}
-                </h1>
-                <h1 className="text-md">
-                  {organization.role}
-                </h1>
-                <h1 className="text-sm">
-                  {formatYear(organization.start)} -{" "}
-                  {formatYear(organization.end)}
-                </h1>
-              </a>
-            </span>
-          </div>
+      <div className="row-span-2 p-4">
+        <div className="flex">
+          <OrgLogo
+            website={organization.website}
+            logoLink={organization.logoLink}
+          />
+          <span className="mx-2">
+            <a href={organization.website} target="_blank">
+              <h1 className="text-xl font-bold uppercase">
+                {organization.name}
+              </h1>
+              <h1 className="text-md">
+                {organization.role}
+              </h1>
+              <h1 className="text-sm">
+                {formatYear(organization.start)} -{" "}
+                {formatYear(organization.end)}
+              </h1>
+            </a>
+          </span>
         </div>
+      </div>
 
-        <div className="rounded-md bg-gray-100 p-4 text-justify">
-          <Contribution story={organization.story} />
-        </div>
+      <div className="rounded-md p-4 text-justify">
+        <Contribution story={organization.story} />
       </div>
     </React.Fragment>
   );

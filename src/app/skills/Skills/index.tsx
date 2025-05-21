@@ -8,33 +8,29 @@ import ShadowCard from "@/app/common/ShadowCard";
 
 const SkillItems = ({ skillItems }: { skillItems: string[] }) => {
   return skillItems.map((item: string) => {
-    return <li key={item}>{item}</li>;
+    return <p key={item}>{item}</p>;
   });
 };
 
 const SingleSkill = ({ skill }: { skill: ISkill }) => {
   return (
     <div>
-      <h1 className="uppercase font-bold">{skill.category}</h1>
-      <ul className="pl-8">
-        <SkillItems skillItems={skill.items} />
-      </ul>
+      <h1 className="uppercase font-bold mb-2">{skill.category}</h1>
+      <SkillItems skillItems={skill.items} />
     </div>
   );
 };
 
 const StyledSkill = ({ children }: { children: any }) => {
   return (
-    <div className="m-4">
-      <ShadowCard>{children}</ShadowCard>
-    </div>
+    <ShadowCard>{children}</ShadowCard>
   );
 };
 
 const Skills: React.FC = () => {
   return (
     <section id="skills" className="">
-      <h2 className="text-justify text-lg font-bold uppercase">
+      <h2 className="text-justify text-lg font-bold uppercase mb-4">
         In my software development and programming career, I have developed
         expertise in building scalable applications across front-end, back-end,
         and system software, specifically for networking devices. I am
@@ -43,7 +39,7 @@ const Skills: React.FC = () => {
         maintainable code with performance optimization, all while collaborating
         effectively in agile environments.
       </h2>
-      <div className="grid grid-cols-2 items-stretch">
+      <div className="grid grid-cols-2 items-stretch gap-4">
         {skills.map((skill) => {
           return (
             <StyledSkill key={skill.category}>

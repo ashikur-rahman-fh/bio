@@ -2,23 +2,39 @@ import React from "react";
 import Image from "next/image";
 
 import { BASIC_INFO } from "./constants";
+import ShadowCard from "@/app/common/ShadowCard";
 
-const About = () => {
-  const renderBasicInfo = () => {
-    const infoLength = BASIC_INFO.length;
-    return BASIC_INFO.map((info, index) => {
-      const columnFull = index === infoLength - 1 && infoLength % 2 === 1;
-      const className = columnFull ? "md:col-span-2" : "";
-      return (
-        <p className={className} key={index.toString()}>
-          {info}
-        </p>
-      );
-    });
-  };
+const Info = ({ text } : { text: string }) => {
+  return (
+    <p className="text-justify">{text}</p>
+  );
+};
 
+const InfoList = ({ infoList } : { infoList: string[] }) => {
   return (
     <React.Fragment>
+      {infoList.map((info, index) => (
+        <StyledInfo key={index.toString()}>
+          <Info text={info} />
+        </StyledInfo>
+      ))}
+    </React.Fragment>
+  );
+};
+
+const StyledInfo = ({ children } : { children: React.ReactNode }) => {
+  return (
+    <div>
+      <ShadowCard>
+        {children}
+      </ShadowCard>
+    </div>
+  );
+};
+
+const About = () => {
+  return (
+    <section className="about-section">
       <div
         className="
           relative float-right my-2 ml-8 hidden overflow-hidden
@@ -46,16 +62,12 @@ const About = () => {
         </div>
 
         <div
-          className="
-            grid grid-cols-1 gap-4 text-justify md:grid-cols-2 md:gap-8
-            [&>p]:rounded-md [&>p]:bg-gray-100 [&>p]:p-4
-            [&>p]:shadow-lg [&>p]:shadow-gray-300
-          "
+          className="grid grid-cols-1 md:grid-cols-2 gap-4"
         >
-          {renderBasicInfo()}
+          <InfoList infoList={BASIC_INFO} />
         </div>
       </div>
-    </React.Fragment>
+    </section>
   );
 };
 
