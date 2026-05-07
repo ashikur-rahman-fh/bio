@@ -1,8 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+
+import {
+  getSamePageHashFragment,
+  pushHashUrl,
+  scrollToFragment,
+} from "@/lib/smoothScroll";
 
 const MotionLink = motion.create(Link);
 
@@ -31,6 +38,7 @@ export default function CrayonButton({
   type = "button",
 }: CrayonButtonProps) {
   const reduce = useReducedMotion();
+  const pathname = usePathname();
 
   const base =
     "focus-sketch inline-flex min-h-[48px] items-center justify-center px-6 py-3 " +
@@ -49,6 +57,16 @@ export default function CrayonButton({
         {...motionProps}
         className={`${base} ${variantClasses[variant]} ${className}`}
         href={href}
+        onClick={(e) => {
+          const fragment = getSamePageHashFragment(pathname, href);
+          if (fragment === null) {
+            return;
+          }
+          e.preventDefault();
+          pushHashUrl(href);
+          scrollToFragment(fragment);
+        }}
+        scroll={false}
       >
         {children}
       </MotionLink>

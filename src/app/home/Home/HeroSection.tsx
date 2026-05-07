@@ -57,10 +57,10 @@ export default function HeroSection() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.35, duration: 0.5 }}
       >
-        <CrayonButton href="/experience">
+        <CrayonButton href="/#projects">
           Explore My Work &rarr;
         </CrayonButton>
-        <CrayonButton href="/contact" variant="secondary">
+        <CrayonButton href="/#contact" variant="secondary">
           Get In Touch
         </CrayonButton>
       </motion.div>

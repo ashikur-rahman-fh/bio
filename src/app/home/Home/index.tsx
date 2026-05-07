@@ -1,13 +1,28 @@
+import Contact from "@/app/contact/Contact";
+import WorkExperience from "@/app/experience/WorkExperience";
+
+import BlogTeaser from "./BlogTeaser";
 import HeroIllustration from "./HeroIllustration";
 import HeroSection from "./HeroSection";
 import TechStrip from "./TechStrip";
-import BlogTeaser from "./BlogTeaser";
+
+const SECTION_SCROLL =
+  "scroll-mt-24 lg:scroll-mt-28";
 
 export default function Home() {
   return (
     <main>
-      <section className="page-container pb-12 pt-8 lg:pb-20 lg:pt-12">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <section
+        aria-label="Introduction"
+        className={`page-container pb-12 pt-8 lg:pb-16 lg:pt-12 ${SECTION_SCROLL}`}
+        id="top"
+      >
+        <div
+          className={
+            "grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(280px,1.14fr)] " +
+            "lg:gap-14 xl:gap-16"
+          }
+        >
           <div className="order-1 lg:order-none">
             <HeroSection />
           </div>
@@ -15,9 +30,11 @@ export default function Home() {
             <HeroIllustration />
           </div>
         </div>
-        <TechStrip />
       </section>
+      <TechStrip />
+      <WorkExperience />
       <BlogTeaser />
+      <Contact />
     </main>
   );
 }

@@ -22,12 +22,12 @@ export interface ISocialPlatformOption {
 }
 
 export const NAV_ITEMS: INavbarOptions[] = [
-  { text: "Home", href: "/" },
-  { text: "Projects", href: "/experience" },
+  { text: "Home", href: "/#top" },
+  { text: "Experience", href: "/#projects" },
   { text: "Skills", href: "/#skills" },
   // { text: "About", href: "/about" }, // disabled — restore when route is live
   { text: "Blog", href: "/#blog" },
-  { text: "Contact", href: "/contact" },
+  { text: "Contact", href: "/#contact" },
 ];
 
 export const SOCIAL_PLATFORMS: ISocialPlatformOption[] = [

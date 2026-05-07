@@ -17,8 +17,15 @@ const textareaClass =
 
 const Contact = () => {
   return (
-    <section className="page-container py-10">
-      <h1 className="crayon-text mb-10 text-center font-hand text-4xl text-ink md:text-5xl">
+    <section
+      aria-labelledby="contact-heading"
+      className="page-container scroll-mt-24 py-10 pb-16 lg:scroll-mt-28"
+      id="contact"
+    >
+      <h1
+        className="crayon-text mb-10 text-center font-hand text-4xl text-ink md:text-5xl"
+        id="contact-heading"
+      >
         Contact me
       </h1>
 

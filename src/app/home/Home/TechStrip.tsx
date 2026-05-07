@@ -37,7 +37,7 @@ export default function TechStrip() {
   return (
     <section
       aria-labelledby="skills-heading"
-      className="relative mt-16 lg:mt-24"
+      className="relative mt-16 scroll-mt-24 lg:mt-24 lg:scroll-mt-28"
       id="skills"
     >
       <div className="relative mx-auto max-w-4xl text-center">

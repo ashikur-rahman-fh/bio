@@ -2,7 +2,7 @@ export default function BlogTeaser() {
   return (
     <section
       aria-labelledby="blog-heading"
-      className="page-container mt-20 pb-8"
+      className="page-container mt-20 scroll-mt-24 pb-8 lg:scroll-mt-28"
       id="blog"
     >
       <div className="sketch-border mx-auto max-w-xl bg-paper/90 p-8 text-center shadow-sm">

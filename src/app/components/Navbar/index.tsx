@@ -12,6 +12,12 @@ import Social from "./Social";
 
 import { NAV_ITEMS, SOCIAL_PLATFORMS } from "./constants";
 
+import {
+  getSamePageHashFragment,
+  pushHashUrl,
+  scrollToFragment,
+} from "@/lib/smoothScroll";
+
 const LOGO_LINK_CLASS =
   "focus-sketch crayon-text relative flex-shrink-0 overflow-visible pb-2 " +
   "font-hand text-2xl tracking-wide text-ink sm:text-3xl";
@@ -36,12 +42,27 @@ const MOBILE_MENU_TRIGGER_CLASS =
   "focus-sketch flex h-12 min-h-[44px] min-w-[44px] items-center justify-center " +
   "rounded-full border-2 border-crayon-blue bg-paper";
 
-function isActive(pathname: string, href: string) {
-  if (href.startsWith("/#")) {
-    return false;
+function fragmentFromHref(href: string): string | null {
+  const i = href.indexOf("#");
+  if (i === -1) {
+    return null;
   }
-  if (href === "/") {
-    return pathname === "/";
+  return href.slice(i + 1) || null;
+}
+
+function navItemIsActive(pathname: string, hashId: string, href: string) {
+  const frag = fragmentFromHref(href);
+  if (frag !== null) {
+    if (pathname !== "/") {
+      return false;
+    }
+    if (frag === "top") {
+      return hashId === "" || hashId === "top";
+    }
+    return hashId === frag;
+  }
+  if (href === "/" || href === "/#top") {
+    return pathname === "/" && (hashId === "" || hashId === "top");
   }
   return pathname === href || pathname.startsWith(`${href}/`);
 }
@@ -49,6 +70,41 @@ function isActive(pathname: string, href: string) {
 export default function Navbar() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hashId, setHashId] = useState("");
+
+  function handleInPageNav(
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) {
+    const fragment = getSamePageHashFragment(pathname, href);
+    if (fragment === null) {
+      return;
+    }
+    e.preventDefault();
+    pushHashUrl(href);
+    scrollToFragment(fragment);
+  }
+
+  useEffect(() => {
+    const syncHash = () => {
+      setHashId(window.location.hash.replace(/^#/, ""));
+    };
+    syncHash();
+    const onHashChange = () => {
+      syncHash();
+      setMenuOpen(false);
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  useEffect(() => {
+    setHashId(
+      typeof window !== "undefined"
+        ? window.location.hash.replace(/^#/, "")
+        : "",
+    );
+  }, [pathname]);
 
   useEffect(() => {
     if (!menuOpen) {
@@ -85,7 +141,12 @@ export default function Navbar() {
           aria-label="Primary"
           className="page-container flex h-16 items-center justify-between gap-3 lg:h-20"
         >
-          <Link className={LOGO_LINK_CLASS} href="/">
+          <Link
+            className={LOGO_LINK_CLASS}
+            href="/#top"
+            onClick={(e) => handleInPageNav(e, "/#top")}
+            scroll={false}
+          >
             ASHIKUR
             <span className="text-crayon-blue">.</span>
             <CrayonUnderline className="-bottom-0.5 w-[108%]" color="blue" delay={0.15} />
@@ -93,12 +154,14 @@ export default function Navbar() {
 
           <div className="hidden flex-1 items-center justify-center gap-6 lg:flex lg:gap-8">
             {NAV_ITEMS.map((item) => {
-              const active = isActive(pathname, item.href);
+              const active = navItemIsActive(pathname, hashId, item.href);
               return (
                 <Link
                   key={item.href}
                   className={navLinkClass(active)}
                   href={item.href}
+                  onClick={(e) => handleInPageNav(e, item.href)}
+                  scroll={false}
                 >
                   {item.text}
                   <span aria-hidden className={underlineClass(active)} />
@@ -157,7 +220,11 @@ export default function Navbar() {
                 key={item.href}
                 className="focus-sketch crayon-text border-b border-pencil/60 py-4 font-hand text-3xl text-ink"
                 href={item.href}
-                onClick={() => setMenuOpen(false)}
+                onClick={(e) => {
+                  handleInPageNav(e, item.href);
+                  setMenuOpen(false);
+                }}
+                scroll={false}
               >
                 {item.text}
               </Link>

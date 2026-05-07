@@ -10,19 +10,25 @@ const Organization = ({ organization }: { organization: IOrganization }) => {
   return (
     <DoodleCard className="flex flex-col items-center justify-center p-4 rotate-1">
       <a
-        className="focus-sketch block"
+        className={
+          "focus-sketch inline-flex min-h-[8.5rem] w-full max-w-[260px] " +
+          "items-center justify-center px-4 py-6"
+        }
         href={organization.website}
         rel="noopener noreferrer"
         target="_blank"
       >
-        <Image
-          priority
-          alt={`${organization.name} workplace logo`}
-          className="h-24 w-40 object-contain p-2"
-          height={100}
-          src={organization.logoLink}
-          width={160}
-        />
+        <span className="block max-h-[7rem] w-full max-w-[min(100%,14rem)] overflow-hidden rounded-2xl">
+          <Image
+            priority
+            alt={`${organization.name} workplace logo (hand-drawn)`}
+            className="h-auto max-h-[7rem] w-full object-contain"
+            height={organization.logoHeight}
+            sizes="(max-width: 640px) 70vw, 224px"
+            src={organization.logoLink}
+            width={organization.logoWidth}
+          />
+        </span>
       </a>
     </DoodleCard>
   );
@@ -30,8 +36,15 @@ const Organization = ({ organization }: { organization: IOrganization }) => {
 
 const WorkExperience = () => {
   return (
-    <section className="page-container py-12">
-      <h1 className="crayon-text mb-10 text-center font-hand text-4xl text-ink md:text-5xl">
+    <section
+      aria-labelledby="projects-heading"
+      className="page-container scroll-mt-24 py-12 lg:scroll-mt-28"
+      id="projects"
+    >
+      <h1
+        className="crayon-text mb-10 text-center font-hand text-4xl text-ink md:text-5xl"
+        id="projects-heading"
+      >
         Work Experience
       </h1>
       <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">

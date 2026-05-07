@@ -1,27 +1,18 @@
-import React from "react";
-import { Metadata } from "next";
+"use client";
 
-import Contact from "./Contact";
+import { useEffect } from "react";
 
-import { DEFAULT_METADATA } from "../constants";
+/**
+ * Old URL — forwards to the single-page portfolio (#contact).
+ */
+export default function LegacyContactRedirectPage() {
+  useEffect(() => {
+    window.location.replace("/#contact");
+  }, []);
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    ...DEFAULT_METADATA,
-    title: "Contact | Ashikur Rahman",
-    description:
-      "Get in touch with Ashikur Rahman for professional inquiries, software " +
-      "collaboration opportunities, or networking. Reach out via email or " +
-      "connect on LinkedIn.",
-    keywords:
-      "Contact Ashikur Rahman, Email Ashikur, LinkedIn Profile, Professional " +
-      "Networking, Developer Contact, Hire Software Developer, Collaborate " +
-      "with Engineer, Tech Resume, Connect with Ashikur, Developer Outreach",
-  };
-};
-
-const ContactPage = () => {
-  return <Contact />;
-};
-
-export default ContactPage;
+  return (
+    <main className="page-container py-16 text-center font-hand text-xl text-ink">
+      <p>Redirecting…</p>
+    </main>
+  );
+}

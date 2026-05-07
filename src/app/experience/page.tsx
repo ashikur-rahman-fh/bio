@@ -1,36 +1,18 @@
-import React from "react";
-import { Metadata } from "next";
+"use client";
 
-import WorkExperience from "./WorkExperience";
+import { useEffect } from "react";
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title:
-      "Work Experience | Ashikur Rahman",
-    description:
-      "Ashikur is a professional software developer with over three " +
-      "years of hands-on experience. Currently contributing to next gen " +
-      "software solutions at Nokia, with expertise in embedded software " +
-      "development practices.",
-    keywords:
-      "Ashikur Rahman, software developer, professional software engineer, " +
-      "3 years experience, three years, object-oriented programming, OOP, " +
-      "design patterns, microservices architecture, embedded systems, " +
-      "Linux development, REST APIs, gRPC, Git, Gerrit, backend development, " +
-      "distributed systems, scalable software, Nokia, Enosis Solutions, " +
-      "SammTech, Jenkins, CI/CD, Infrastructure" +
-      "C++, CPP, Python, Bash, Scripting, C++ developer, Python developer" +
-      "Django, Django developer, JavaScript, JavaScript developer, React" +
-      "React developer, Embedded software, Embedded software developer"
-  };
-}
+/**
+ * Old URL — forwards to the single-page portfolio (#projects).
+ */
+export default function LegacyExperienceRedirectPage() {
+  useEffect(() => {
+    window.location.replace("/#projects");
+  }, []);
 
-const WorkExperiencePage = () => {
   return (
-    <React.Fragment>
-      <WorkExperience />
-    </React.Fragment>
+    <main className="page-container py-16 text-center font-hand text-xl text-ink">
+      <p>Redirecting…</p>
+    </main>
   );
-};
-
-export default WorkExperiencePage;
+}

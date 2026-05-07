@@ -8,6 +8,8 @@ export interface IOrganization {
   name: string;
   website: string;
   logoLink: string;
+  logoWidth: number;
+  logoHeight: number;
 };
 
 export interface IWorkExperience {
