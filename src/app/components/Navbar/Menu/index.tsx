@@ -1,7 +1,12 @@
 import React from "react";
 
+interface NavItem {
+  text: string;
+  href: string;
+}
+
 interface MenuProps {
-  items: Array<any>;
+  items: NavItem[];
 }
 
 const Menu = (props: MenuProps) => {
@@ -9,7 +14,7 @@ const Menu = (props: MenuProps) => {
 
   const renderMenuItems = () => {
     return items.map((option, index) => {
-      const { text, link } = option;
+      const { text, href } = option;
       return (
         <a
           key={index.toString()}
@@ -17,7 +22,7 @@ const Menu = (props: MenuProps) => {
             "text-md whitespace-nowrap lowercase text-slate-400 " +
             "hover:text-slate-800"
           }
-          href={link}
+          href={href}
         >
           {text}
         </a>

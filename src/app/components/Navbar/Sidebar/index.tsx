@@ -3,7 +3,7 @@ import React from "react";
 import Menu from "../Menu";
 import Social from "../Social";
 
-import { NAV_OPTIONS, SOCIAL_PLATFORMS } from "../constants";
+import { NAV_ITEMS, SOCIAL_PLATFORMS } from "../constants";
 
 const Sidebar = () => {
   return (
@@ -14,7 +14,7 @@ const Sidebar = () => {
       "
     >
       <div className="mt-32 flex flex-col items-center justify-center gap-3">
-        <Menu items={NAV_OPTIONS} />
+        <Menu items={NAV_ITEMS} />
       </div>
       <div>
         <Social platforms={SOCIAL_PLATFORMS} />

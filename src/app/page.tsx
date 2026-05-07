@@ -1,10 +1,10 @@
 import React from "react";
-import About from "./about/About";
+import Home from "./home/Home";
 
-export default function Home() {
+export default function Page() {
   return (
     <React.Fragment>
-      <About />
+      <Home />
     </React.Fragment>
   );
 }

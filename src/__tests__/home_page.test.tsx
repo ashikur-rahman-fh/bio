@@ -4,11 +4,15 @@ import Home from "@/app/page";
 
 describe("Home Page", () => {
   it("renders the home page component", () => {
-    const { getByText } = render(<Home />);
-    expect(getByText(/Hello, I am/i)).toBeInTheDocument();
-    expect(getByText(/Ashikur Rahman/i)).toBeInTheDocument();
+    render(<Home />);
+    expect(screen.getByText(/Hi, I'm/i)).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { level: 1, name: /Ashikur/i }),
+    ).toBeInTheDocument();
 
-    const dp = screen.getByAltText("ashikur-dp");
-    expect(dp).toBeInTheDocument();
+    const illustration = screen.getByAltText(
+      /Hand-drawn illustration of Ashikur Rahman coding at a laptop/i,
+    );
+    expect(illustration).toBeInTheDocument();
   });
 });

@@ -10,34 +10,24 @@ import Youtube from "../LogoComponent/Youtube";
 import { LogoProps } from "@/app/types";
 
 export interface INavbarOptions {
-  text: string,
-  link: string,
-};
-
-export interface ISocialPlatformOption {
-  id: string,
-  LogoComponent: React.ComponentType<LogoProps>,
-  text: string,
-  link: string,
+  text: string;
+  href: string;
 }
 
-export const NAV_OPTIONS: INavbarOptions[] = [
-  {
-    text: "About",
-    link: "/about",
-  },
-  {
-    text: "Work Experience",
-    link: "/experience"
-  },
-  {
-    text: "Skills",
-    link: "/skill",
-  },
-  {
-    text: "Contact",
-    link: "/contact",
-  }
+export interface ISocialPlatformOption {
+  id: string;
+  LogoComponent: React.ComponentType<LogoProps>;
+  text: string;
+  link: string;
+}
+
+export const NAV_ITEMS: INavbarOptions[] = [
+  { text: "Home", href: "/" },
+  { text: "Projects", href: "/experience" },
+  { text: "Skills", href: "/#skills" },
+  // { text: "About", href: "/about" }, // disabled — restore when route is live
+  { text: "Blog", href: "/#blog" },
+  { text: "Contact", href: "/contact" },
 ];
 
 export const SOCIAL_PLATFORMS: ISocialPlatformOption[] = [
