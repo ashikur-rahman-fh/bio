@@ -41,8 +41,8 @@ export default function CrayonButton({
   const pathname = usePathname();
 
   const base =
-    "focus-sketch inline-flex min-h-[48px] items-center justify-center px-6 py-3 " +
-    "font-hand text-xl transition-colors sm:min-h-[52px]";
+    "focus-sketch inline-flex min-h-[44px] items-center justify-center px-4 py-2.5 " +
+    "font-hand text-base transition-colors sm:min-h-[52px] sm:px-6 sm:py-3 sm:text-xl";
 
   const motionProps = reduce
     ? {}

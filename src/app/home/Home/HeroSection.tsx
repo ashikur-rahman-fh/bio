@@ -9,7 +9,7 @@ export default function HeroSection() {
   const reduce = useReducedMotion();
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex min-w-0 flex-col gap-8">
       <div>
         <p className="crayon-text font-hand text-2xl text-ink sm:text-3xl">
           Hi, I&apos;m
@@ -52,15 +52,22 @@ export default function HeroSection() {
       </div>
 
       <motion.div
-        className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center"
+        className={
+          "mx-auto flex w-full max-w-sm flex-col gap-4 sm:mx-0 sm:max-w-none " +
+          "sm:flex-row sm:flex-wrap sm:items-center"
+        }
         initial={reduce ? undefined : { opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.35, duration: 0.5 }}
       >
-        <CrayonButton href="/#projects">
+        <CrayonButton className="w-full sm:w-auto" href="/#projects">
           Explore My Work &rarr;
         </CrayonButton>
-        <CrayonButton href="/#contact" variant="secondary">
+        <CrayonButton
+          className="w-full sm:w-auto"
+          href="/#contact"
+          variant="secondary"
+        >
           Get In Touch
         </CrayonButton>
       </motion.div>

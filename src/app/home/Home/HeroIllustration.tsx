@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import Image from "next/image";
 import {
   IconCloud,
@@ -16,7 +17,7 @@ import DoodleCard from "@/app/components/Sketch/DoodleCard";
 
 function CardCodeEditor() {
   return (
-    <DoodleCard className="w-full max-w-[min(315px,92vw)] p-3 lg:max-w-[267px]">
+    <DoodleCard className="w-full max-w-full min-w-0 p-3 lg:max-w-[267px]">
       <div className="mb-2 flex items-center gap-1">
         <span className="h-2 w-2 rounded-full bg-crayon-red" />
         <span className="h-2 w-2 rounded-full bg-crayon-yellow" />
@@ -45,7 +46,7 @@ function CardCodeEditor() {
 function CardSticky() {
   return (
     <DoodleCard
-      className="max-w-[min(280px,85vw)] px-3 pt-3 pb-4 lg:max-w-[214px] lg:px-3.5 lg:pb-4"
+      className="max-w-full min-w-0 px-3 pt-3 pb-4 lg:max-w-[214px] lg:px-3.5 lg:pb-4"
       rotate="-rotate-1"
       tape
     >
@@ -69,7 +70,7 @@ function CardSticky() {
 
 function CardDeploy() {
   return (
-    <DoodleCard className="max-w-[min(280px,85vw)] p-3 lg:max-w-[192px]" rotate="rotate-1">
+    <DoodleCard className="max-w-full min-w-0 p-3 lg:max-w-[192px]" rotate="rotate-1">
       <div className="flex items-center justify-between gap-2">
         <span className="font-mono text-xs text-ink/80">&gt; Deploying...</span>
         <IconRocket aria-hidden className="h-5 w-5 text-crayon-red" />
@@ -86,7 +87,7 @@ function CardDeploy() {
 
 function CardArch() {
   return (
-    <DoodleCard className="max-w-[min(280px,85vw)] p-3 lg:max-w-[200px]" rotate="-rotate-2">
+    <DoodleCard className="max-w-full min-w-0 p-3 lg:max-w-[200px]" rotate="-rotate-2">
       <div className="flex items-center justify-center gap-2 text-crayon-blue">
         <IconMonitor aria-hidden className="h-6 w-6" />
         <span className="font-hand text-xl">&rarr;</span>
@@ -119,22 +120,142 @@ const cards = [
   { key: "arch", node: <CardArch /> },
 ];
 
-const mobileCardsStripClass =
-  "flex gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] " +
-  "lg:hidden [&::-webkit-scrollbar]:hidden";
+const FLOAT_LAYOUT = {
+  mobile: {
+    shell: "pointer-events-none md:hidden",
+    code: {
+      wrapper:
+        "floating-doodle absolute left-0 top-[7%] z-30 w-[min(158px,46%)] max-w-[46%]",
+      inner: "origin-top-left scale-[0.68]",
+    },
+    sticky: {
+      wrapper:
+        "floating-doodle-delayed absolute right-0 top-[2%] z-30 " +
+        "w-[min(172px,50%)] max-w-[50%]",
+      inner: "origin-top-right scale-[0.66]",
+    },
+    deploy: {
+      wrapper:
+        "floating-doodle absolute bottom-[24%] left-0 z-30 " +
+        "w-[min(142px,41%)] max-w-[41%]",
+      inner: "origin-bottom-left scale-[0.68]",
+    },
+    arch: {
+      wrapper:
+        "floating-doodle-delayed absolute bottom-[14%] right-0 z-30 " +
+        "w-[min(150px,44%)] max-w-[44%]",
+      inner: "origin-bottom-right translate-y-1 scale-[0.66]",
+    },
+  },
+  desktop: {
+    shell: "pointer-events-none hidden lg:block",
+    code: {
+      wrapper:
+        "floating-doodle absolute left-0 top-[8%] z-30 w-[min(267px,36%)] " +
+        "xl:left-[2%] xl:top-[10%] xl:w-[min(283px,38%)]",
+      inner: "origin-top-left scale-[0.82] xl:scale-[0.86]",
+    },
+    sticky: {
+      wrapper:
+        "floating-doodle-delayed absolute right-0 top-[4%] z-30 " +
+        "w-[min(214px,29%)] xl:right-[3%] xl:top-[6%]",
+      inner: "origin-top-right scale-[0.82] xl:scale-[0.86]",
+    },
+    deploy: {
+      wrapper:
+        "floating-doodle absolute bottom-[8%] left-0 z-30 w-[min(184px,27%)] " +
+        "xl:bottom-[10%] xl:left-[3%]",
+      inner: "origin-bottom-left scale-[0.82] xl:scale-[0.86]",
+    },
+    arch: {
+      wrapper:
+        "floating-doodle-delayed absolute bottom-0 right-0 z-30 " +
+        "w-[min(194px,28%)] xl:right-[4%]",
+      inner:
+        "origin-bottom-right translate-y-4 scale-[0.84] " +
+        "xl:translate-y-5 xl:scale-[0.88]",
+    },
+  },
+} as const;
 
-export default function HeroIllustration() {
-  const reduce = useReducedMotion();
+function FloatingHeroCards({
+  layout,
+  reduceMotion,
+}: {
+  layout: keyof typeof FLOAT_LAYOUT;
+  reduceMotion: boolean;
+}) {
+  const L = FLOAT_LAYOUT[layout];
 
   return (
-    <div className="relative flex w-full flex-col gap-8 lg:gap-10">
-      <div className="relative mx-auto w-full max-w-[min(85vw,420px)] lg:mx-0 lg:max-w-none">
+    <div className={`${L.shell} min-w-0`}>
+      <motion.div
+        className={L.code.wrapper}
+        initial={reduceMotion ? undefined : { opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4 }}
+      >
+        <div className={`${L.code.inner} wobble-hover`}>
+          <CardCodeEditor />
+        </div>
+      </motion.div>
+      <motion.div
+        className={L.sticky.wrapper}
+        initial={reduceMotion ? undefined : { opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.55 }}
+      >
+        <div className={`${L.sticky.inner} wobble-hover`}>
+          <CardSticky />
+        </div>
+      </motion.div>
+      <motion.div
+        className={L.deploy.wrapper}
+        initial={reduceMotion ? undefined : { opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.65 }}
+      >
+        <div className={`${L.deploy.inner} wobble-hover`}>
+          <CardDeploy />
+        </div>
+      </motion.div>
+      <motion.div
+        className={L.arch.wrapper}
+        initial={reduceMotion ? undefined : { opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.75 }}
+      >
+        <div className={`${L.arch.inner} wobble-hover`}>
+          <CardArch />
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+function CardColumnWrap({ children }: { children: ReactNode }) {
+  return (
+    <div className="mx-auto w-full max-w-[min(420px,100%)]">{children}</div>
+  );
+}
+
+export default function HeroIllustration() {
+  const reduceMotion = Boolean(useReducedMotion());
+
+  return (
+    <div className="relative flex min-w-0 w-full flex-col gap-8 lg:gap-10">
+      <div
+        className={
+          "relative mx-auto min-w-0 w-full max-w-[min(85vw,420px)] overflow-visible " +
+          "pb-14 md:pb-0 lg:mx-0 lg:max-w-none"
+        }
+      >
         <motion.div
           className={
             "relative z-10 mx-auto w-full max-w-[min(420px,92vw)] " +
             "shadow-[0_12px_40px_-12px_rgba(23,23,23,0.18)] lg:max-w-[min(500px,86%)]"
           }
-          initial={reduce ? undefined : { opacity: 0, scale: 0.97 }}
+          initial={reduceMotion ? undefined : { opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
@@ -151,85 +272,28 @@ export default function HeroIllustration() {
           </DoodleCard>
         </motion.div>
 
-        <div className="hidden lg:block">
-          <motion.div
-            className={
-              "floating-doodle absolute left-0 top-[8%] z-30 w-[min(267px,36%)] " +
-              "xl:left-[2%] xl:top-[10%] xl:w-[min(283px,38%)]"
-            }
-            initial={reduce ? undefined : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-          >
-            <div className="origin-top-left scale-[0.82] xl:scale-[0.86]">
-              <CardCodeEditor />
-            </div>
-          </motion.div>
-          <motion.div
-            className={
-              "floating-doodle-delayed absolute right-0 top-[4%] z-30 " +
-              "w-[min(214px,29%)] xl:right-[3%] xl:top-[6%]"
-            }
-            initial={reduce ? undefined : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.55 }}
-          >
-            <div className="origin-top-right scale-[0.82] xl:scale-[0.86]">
-              <CardSticky />
-            </div>
-          </motion.div>
-          <motion.div
-            className={
-              "floating-doodle absolute bottom-[8%] left-0 z-30 w-[min(184px,27%)] " +
-              "xl:bottom-[10%] xl:left-[3%]"
-            }
-            initial={reduce ? undefined : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.65 }}
-          >
-            <div className="origin-bottom-left scale-[0.82] xl:scale-[0.86]">
-              <CardDeploy />
-            </div>
-          </motion.div>
-          <motion.div
-            className={
-              "floating-doodle-delayed absolute bottom-0 right-0 z-30 " +
-              "w-[min(194px,28%)] xl:right-[4%]"
-            }
-            initial={reduce ? undefined : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.75 }}
-          >
-            <div
-              className={
-                "origin-bottom-right translate-y-4 scale-[0.84] " +
-                "xl:translate-y-5 xl:scale-[0.88]"
-              }
-            >
-              <CardArch />
-            </div>
-          </motion.div>
-        </div>
+        <FloatingHeroCards layout="mobile" reduceMotion={reduceMotion} />
+        <FloatingHeroCards layout="desktop" reduceMotion={reduceMotion} />
       </div>
 
       <div
-        className={mobileCardsStripClass}
-        style={{ scrollSnapType: "x mandatory" }}
+        className={
+          "hidden min-w-0 w-full md:grid lg:hidden md:grid-cols-2 " +
+          "md:justify-items-center md:gap-4"
+        }
       >
         {cards.map((c, i) => (
-          <div
-            key={c.key}
-            className="wobble-hover flex-shrink-0"
-            style={{ scrollSnapAlign: "start" }}
-          >
-            <motion.div
-              initial={reduce ? undefined : { opacity: 0, x: 16 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 + i * 0.06 }}
-            >
-              {c.node}
-            </motion.div>
-          </div>
+          <CardColumnWrap key={c.key}>
+            <div className="wobble-hover">
+              <motion.div
+                initial={reduceMotion ? undefined : { opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 + i * 0.06 }}
+              >
+                {c.node}
+              </motion.div>
+            </div>
+          </CardColumnWrap>
         ))}
       </div>
     </div>

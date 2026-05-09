@@ -38,7 +38,7 @@ const WorkExperience = () => {
   return (
     <section
       aria-labelledby="projects-heading"
-      className="page-container scroll-mt-24 py-12 lg:scroll-mt-28"
+      className="page-container scroll-mt-24 py-10 lg:scroll-mt-28 lg:py-12"
       id="projects"
     >
       <h1

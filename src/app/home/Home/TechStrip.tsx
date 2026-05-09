@@ -27,7 +27,7 @@ const tech = [
 ];
 
 const skillsGridClass =
-  "flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 " +
+  "flex min-w-0 w-full snap-x snap-mandatory gap-3 overflow-x-auto pb-2 " +
   "[-ms-overflow-style:none] [scrollbar-width:none] sm:grid sm:grid-cols-3 " +
   "sm:overflow-visible md:grid-cols-4 lg:grid-cols-8 [&::-webkit-scrollbar]:hidden";
 
@@ -37,7 +37,7 @@ export default function TechStrip() {
   return (
     <section
       aria-labelledby="skills-heading"
-      className="relative mt-16 scroll-mt-24 lg:mt-24 lg:scroll-mt-28"
+      className="relative mt-8 scroll-mt-24 md:mt-12 lg:mt-24 lg:scroll-mt-28"
       id="skills"
     >
       <div className="relative mx-auto max-w-4xl text-center">
@@ -50,7 +50,7 @@ export default function TechStrip() {
         </h2>
       </div>
 
-      <div className="sketch-border sketch-border-blue mx-auto mt-8 max-w-5xl border-dashed bg-paper/70 p-4 sm:p-6">
+      <div className="sketch-border sketch-border-blue mx-auto mt-8 max-w-5xl min-w-0 border-dashed bg-paper/70 p-4 sm:p-6">
         <div className={skillsGridClass}>
           {tech.map(({ name, Icon, tilt }) => (
             <motion.div
