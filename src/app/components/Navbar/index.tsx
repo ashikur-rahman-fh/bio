@@ -184,7 +184,7 @@ export default function Navbar() {
               type="button"
             >
               {menuOpen ? (
-                <Close style={{ width: "26px" }} />
+                <Close className="h-[22px] w-[22px]" />
               ) : (
                 <Hamburger style={{ width: "22px" }} />
               )}
@@ -195,30 +195,44 @@ export default function Navbar() {
 
       {menuOpen ? (
         <div
-          className="fixed inset-0 z-[60] flex flex-col bg-paper/97 lg:hidden"
+          className={
+            "fixed inset-0 z-[60] flex flex-col overscroll-contain bg-paper lg:hidden " +
+            "shadow-[inset_0_0_0_1px_rgba(216,209,196,0.45)]"
+          }
           id="sketch-mobile-nav"
           role="dialog"
           aria-modal="true"
           aria-label="Navigation menu"
         >
-          <div className="flex items-center justify-between border-b-2 border-pencil/50 px-4 py-4">
-            <span className="crayon-text font-hand text-2xl text-ink">
+          <div
+            className={
+              "flex min-h-16 shrink-0 items-center justify-between gap-4 " +
+              "border-b-2 border-pencil/60 bg-paper px-4 pb-3 " +
+              "pt-[calc(0.75rem+env(safe-area-inset-top,0px))] sm:px-6"
+            }
+          >
+            <span className="crayon-text font-hand text-2xl leading-none text-ink sm:text-3xl">
               Menu
             </span>
             <button
               aria-label="Close menu"
-              className="focus-sketch flex h-12 min-h-[44px] min-w-[44px] items-center justify-center rounded-full border-2 border-ink/20"
+              className={`${MOBILE_MENU_TRIGGER_CLASS} shrink-0`}
               onClick={() => setMenuOpen(false)}
               type="button"
             >
-              <Close style={{ width: "26px" }} />
+              <Close className="h-[22px] w-[22px]" />
             </button>
           </div>
-          <div className="flex flex-1 flex-col gap-2 overflow-y-auto px-6 py-8">
+          <div className="flex min-h-0 flex-1 flex-col gap-1 overflow-y-auto bg-paper px-4 py-6 sm:px-6">
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item.href}
-                className="focus-sketch crayon-text border-b border-pencil/60 py-4 font-hand text-3xl text-ink"
+                className={
+                  "focus-sketch crayon-text rounded-xl border-2 border-transparent " +
+                  "py-4 pl-3 pr-3 font-hand text-3xl leading-tight text-ink " +
+                  "transition-colors hover:border-pencil/50 hover:bg-pencil/25 " +
+                  "active:bg-pencil/35 sm:text-[2rem]"
+                }
                 href={item.href}
                 onClick={(e) => {
                   handleInPageNav(e, item.href);
@@ -229,7 +243,7 @@ export default function Navbar() {
                 {item.text}
               </Link>
             ))}
-            <div className="mt-auto flex flex-wrap justify-center gap-3 pb-8 pt-10">
+            <div className="mt-auto flex flex-wrap justify-center gap-3 pt-10 pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))]">
               <Social platforms={SOCIAL_PLATFORMS} />
             </div>
           </div>
