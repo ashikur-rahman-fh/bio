@@ -26,7 +26,6 @@ export const NAV_ITEMS: INavbarOptions[] = [
   { text: "Experience", href: "/#projects" },
   { text: "Skills", href: "/#skills" },
   // { text: "About", href: "/about" }, // disabled — restore when route is live
-  { text: "Blog", href: "/#blog" },
   { text: "Contact", href: "/#contact" },
 ];
 

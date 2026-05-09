@@ -1,7 +1,6 @@
 import Contact from "@/app/contact/Contact";
 import WorkExperience from "@/app/experience/WorkExperience";
 
-import BlogTeaser from "./BlogTeaser";
 import HeroIllustration from "./HeroIllustration";
 import HeroSection from "./HeroSection";
 import TechStrip from "./TechStrip";
@@ -33,7 +32,6 @@ export default function Home() {
       </section>
       <TechStrip />
       <WorkExperience />
-      <BlogTeaser />
       <Contact />
     </main>
   );
