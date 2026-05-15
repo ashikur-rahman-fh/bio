@@ -9,13 +9,17 @@ type FacebookLogoProps = LogoProps &
     "aria-hidden" | "priority"
   >;
 
-const Facebook = ({ className = "", ...rest }: FacebookLogoProps) => {
+const Facebook = ({
+  className = "",
+  alt = "Facebook logo (hand-drawn)",
+  ...rest
+}: FacebookLogoProps) => {
   return (
     <span
       className={`inline-flex shrink-0 overflow-hidden rounded-full ${className}`}
     >
       <Image
-        alt=""
+        alt={alt}
         className="facebook size-full object-contain"
         height={1024}
         src="/facebook-crayon.png"

@@ -9,13 +9,17 @@ type GmailLogoProps = LogoProps &
     "aria-hidden" | "priority"
   >;
 
-const Gmail = ({ className = "", ...rest }: GmailLogoProps) => {
+const Gmail = ({
+  className = "",
+  alt = "Email logo (hand-drawn)",
+  ...rest
+}: GmailLogoProps) => {
   return (
     <span
       className={`inline-flex shrink-0 overflow-hidden rounded-full ${className}`}
     >
       <Image
-        alt=""
+        alt={alt}
         className="gmail size-full object-contain"
         height={1024}
         src="/gmail-crayon.png"

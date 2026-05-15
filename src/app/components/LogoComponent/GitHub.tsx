@@ -9,13 +9,17 @@ type GitHubLogoProps = LogoProps &
     "aria-hidden" | "priority"
   >;
 
-const GitHub = ({ className = "", ...rest }: GitHubLogoProps) => {
+const GitHub = ({
+  className = "",
+  alt = "GitHub logo (hand-drawn)",
+  ...rest
+}: GitHubLogoProps) => {
   return (
     <span
       className={`inline-flex shrink-0 overflow-hidden rounded-full ${className}`}
     >
       <Image
-        alt=""
+        alt={alt}
         className="github size-full object-contain"
         height={1024}
         src="/github-crayon.png"

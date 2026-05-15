@@ -37,6 +37,7 @@ export interface IMetadata {
 
 export interface LogoProps {
   className?: string;
+  alt?: string;
 }
 
 export interface IYearMonth {

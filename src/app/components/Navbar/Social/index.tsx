@@ -33,7 +33,10 @@ const Social = ({ platforms }: SocialProps) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <LogoComponent className="h-[26px] w-[26px]" />
+              <LogoComponent
+                alt={`${text} logo (hand-drawn)`}
+                className="h-[26px] w-[26px]"
+              />
             </Link>
           </span>
         );
