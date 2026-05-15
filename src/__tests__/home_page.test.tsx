@@ -7,7 +7,7 @@ describe("Home Page", () => {
     render(<Home />);
     expect(screen.getByText(/Hi, I'm/i)).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { level: 1, name: /Ashikur/i }),
+      screen.getByRole("heading", { level: 1, name: /Ashikur Rahman/i }),
     ).toBeInTheDocument();
 
     const illustration = screen.getByAltText(

@@ -22,12 +22,12 @@ const Contact = () => {
       className="page-container scroll-mt-24 py-10 pb-16 lg:scroll-mt-28"
       id="contact"
     >
-      <h1
+      <h2
         className="crayon-text mb-10 text-center font-hand text-4xl text-ink md:text-5xl"
         id="contact-heading"
       >
         Contact me
-      </h1>
+      </h2>
 
       <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-12">
         <DoodleCard className="flex-1 p-6 md:p-8">

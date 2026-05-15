@@ -41,12 +41,12 @@ const WorkExperience = () => {
       className="page-container scroll-mt-24 py-10 lg:scroll-mt-28 lg:py-12"
       id="projects"
     >
-      <h1
+      <h2
         className="crayon-text mb-10 text-center font-hand text-4xl text-ink md:text-5xl"
         id="projects-heading"
       >
         Work Experience
-      </h1>
+      </h2>
       <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
         {Experience.map((experience) => (
           <Organization

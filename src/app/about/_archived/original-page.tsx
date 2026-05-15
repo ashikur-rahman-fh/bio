@@ -7,11 +7,11 @@ import { Metadata } from "next";
 
 import About from "../About";
 
-import { DEFAULT_METADATA } from "../../constants";
+import { SITE_METADATA } from "../../constants";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    ...DEFAULT_METADATA,
+    ...SITE_METADATA,
     title: "About | Ashikur Rahman",
     description:
       "Learn more about Ashikur Rahman, a dedicated software engineer and " +
