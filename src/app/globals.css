@@ -10,9 +10,12 @@
   --crayon-green: #3fa34d;
   --crayon-red: #e84c3d;
   --pencil: #d8d1c4;
-  --font-hand: var(--font-patrick-hand), "Comic Neue", cursive;
-  --font-body: var(--font-inter), system-ui, sans-serif;
-  --font-scribble: var(--font-caveat), cursive;
+  --font-inter: "Inter", system-ui, sans-serif;
+  --font-patrick-hand: "Patrick Hand", "Comic Neue", cursive;
+  --font-caveat: "Caveat", cursive;
+  --font-hand: var(--font-patrick-hand);
+  --font-body: var(--font-inter);
+  --font-scribble: var(--font-caveat);
 }
 
 @layer base {
